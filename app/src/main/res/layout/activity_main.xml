@@ -11,6 +11,7 @@
         android:layout_height="50dp"
         android:scaleType="centerCrop"
         android:src="@drawable/android"
+        android:transitionName="sharedImage"
         />
 
 </LinearLayout>

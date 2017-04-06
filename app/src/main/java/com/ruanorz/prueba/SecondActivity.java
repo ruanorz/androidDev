@@ -4,10 +4,13 @@ import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 
 /**
  * Created by ruano on 29/03/2017.
@@ -17,10 +20,15 @@ public class SecondActivity extends AppCompatActivity {
 
     private static final String TAG = SecondActivity.class.getName();
 
+    private View parentLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
+
+        parentLayout = findViewById(R.id.sharedimage);
+
 
         final ImageView sharedImage = (ImageView) findViewById(R.id.sharedimage);
         sharedImage.setOnClickListener(new View.OnClickListener() {
@@ -44,4 +52,13 @@ public class SecondActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onEnterAnimationComplete() {
+        super.onEnterAnimationComplete();
+
+        Snackbar.make(parentLayout, "onEnterAnimationComplete", Snackbar.LENGTH_LONG)
+                .show();
+    }
+
 }

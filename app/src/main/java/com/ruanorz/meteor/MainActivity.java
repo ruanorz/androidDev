@@ -1,4 +1,4 @@
-package com.ruanorz.prueba;
+package com.ruanorz.meteor;
 
 import android.animation.Animator;
 import android.animation.AnimatorSet;
@@ -22,14 +22,20 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.Random;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -39,10 +45,17 @@ public class MainActivity extends AppCompatActivity {
     private int width;
     private int height;
 
+    @BindView(R.id.button_start)
+    TextView button_start;
+
+    @BindView(R.id.layout_button_start)
+    LinearLayout layout_button_start;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
 
         //Obtenemos las dimensiones de la pantalla para
         Display display = getWindowManager().getDefaultDisplay();
@@ -92,10 +105,13 @@ public class MainActivity extends AppCompatActivity {
         TextView textLogo = (TextView) findViewById(R.id.tv_logo);
         Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/ochobits.ttf");
         textLogo.setTypeface(tf);
-        textLogo.setText(getString(R.string.nameLogo));
 
+        //Cambio fuente boton start
+        button_start.setTypeface(tf);
 
-
+        //Animacion blink por xml
+        Animation startAnimation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.blink);
+        button_start.startAnimation(startAnimation);
 
         /*
         //Shared view animation
@@ -213,6 +229,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+    /* **********************************************
+
+    Funcion para generar meteoritos por la derecha y por arriba.
+
+    ************************************************ */
     public void generateMeteor(){
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -318,12 +340,16 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
             }
-
-
-
-
-
         }
+    }
 
+    @OnClick(R.id.layout_button_start)
+    public void button_start_pressed(View view) {
+        GoToTutorial();
+    }
+
+    private void GoToTutorial(){
+        Intent intent = new Intent(this, TutorialActivity.class);
+        startActivity(intent);
     }
 }

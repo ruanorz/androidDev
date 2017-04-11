@@ -1,4 +1,4 @@
-package com.ruanorz.prueba;
+package com.ruanorz.meteor;
 
 import android.app.ActivityOptions;
 import android.content.Intent;

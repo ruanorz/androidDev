@@ -3,4 +3,16 @@
     <string name="hello_world">Hello world!</string>
 
     <string name="nameLogo">meteor</string>
+
+    <!-- Splash screen -->
+    <string name="button_start">Start</string>
+
+    <!-- Tutorial screen -->
+    <string name="skip_button">Skip</string>
+    <string name="continue_button">Continue</string>
+
+    <!-- Login screen -->
+    <string name="sign_out">Sign out</string>
+    <string name="revoke">Revoke</string>
+
 </resources>

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "523095987036",
+    "project_id": "firebase-meteor"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:523095987036:android:6c778861b5ba434c",
+        "android_client_info": {
+          "package_name": "com.ruanorz.meteor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "523095987036-jmsaf9po738qkk5s8q8jh3nsmr15dni7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ruanorz.meteor",
+            "certificate_hash": "9650c1a30381e01b606036749547deef0d6398a0"
+          }
+        },
+        {
+          "client_id": "523095987036-pu5so69039qjonlg08tj5e9ga91dnfl0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTfMkYIiisRQJub7zK7eISSRbdXI7PUTg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MarvelApp</string>
+
+    <string name="no_description">Description not found... Sorry</string>
+    <string name="no_authors">Authors not found... Sorry</string>
+    <string name="price">Price: %1$s</string>
+</resources>

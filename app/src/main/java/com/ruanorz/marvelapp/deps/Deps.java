@@ -1,6 +1,6 @@
 package com.ruanorz.marvelapp.deps;
 
-import com.ruanorz.marvelapp.comic_list.ListActivity;
+import com.ruanorz.marvelapp.views.comic_list.ListActivity;
 import com.ruanorz.marvelapp.networking.NetworkModule;
 
 import javax.inject.Singleton;

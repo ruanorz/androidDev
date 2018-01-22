@@ -1,6 +1,7 @@
 package com.ruanorz.marvelapp.networking;
 
 
+import com.ruanorz.marvelapp.CharacterListResponse;
 import com.ruanorz.marvelapp.ComicListResponse;
 
 import retrofit2.http.GET;
@@ -26,6 +27,15 @@ public interface NetworkService {
          @Query(HASH) String hash,
          @Query(LIMIT) Integer limit,
          @Query(OFFSET) Integer offset);
+
+
+    @GET("/v1/public/characters")
+    Observable<CharacterListResponse> getCharacterList(
+            @Query(TIMESTAMP) long timestamp,
+            @Query(API_KEY) String publicKey,
+            @Query(HASH) String hash,
+            @Query(LIMIT) Integer limit,
+            @Query(OFFSET) Integer offset);
 
 
 }

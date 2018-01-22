@@ -1,7 +1,6 @@
 package com.ruanorz.marvelapp.comic_list;
 
-import android.util.Log;
-
+import com.ruanorz.marvelapp.CharacterListResponse;
 import com.ruanorz.marvelapp.ComicListResponse;
 import com.ruanorz.marvelapp.Result;
 import com.ruanorz.marvelapp.networking.NetworkError;
@@ -11,7 +10,6 @@ import java.util.Date;
 import java.util.List;
 
 import io.realm.Realm;
-import io.realm.RealmResults;
 import rx.Subscription;
 import rx.subscriptions.CompositeSubscription;
 
@@ -59,12 +57,6 @@ public class ListPresenter {
                 view.removeWait();
                 view.getComicListSuccess(comicListResponse);
 
-
-//TODO RETRIEVE DATA FROM DB
-//                ComicListResponse comicList = realm.where(ComicListResponse.class)
-//                        .findFirst();
-//
-//                Log.e("error", "Comic List size: "+comicList.getSavedAt());
             }
 
             @Override
@@ -78,6 +70,8 @@ public class ListPresenter {
 
         subscriptions.add(subscription);
     }
+
+
     public void onStop() {
         subscriptions.unsubscribe();
     }
@@ -86,5 +80,32 @@ public class ListPresenter {
 
     public void closeRealm(){
         realm.close();
+    }
+
+
+
+
+    public void getCharacterList(final int page) {
+
+
+        Subscription subscription = service.getCharacterList(page ,new Service.GetCharacterCallback() {
+            @Override
+            public void onSuccess(CharacterListResponse characterListResponse) {
+
+
+                view.getCharacterListSuccess(characterListResponse);
+
+            }
+
+            @Override
+            public void onError(NetworkError networkError) {
+
+                view.removeWait();
+                view.onFailure(networkError.getAppErrorMessage());
+            }
+
+        });
+
+        subscriptions.add(subscription);
     }
 }

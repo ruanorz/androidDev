@@ -15,6 +15,9 @@ public class Result extends RealmObject {
     @SerializedName("id")
     @Expose
     private Integer id;
+    @SerializedName("name")
+    @Expose
+    private String name;
     @SerializedName("digitalId")
     @Expose
     private Integer digitalId;
@@ -123,9 +126,10 @@ public class Result extends RealmObject {
      * @param characters
      * @param diamondCode
      */
-    public Result(Integer id, Integer digitalId, String title, Integer issueNumber, String modified, String isbn, String upc, String diamondCode, String ean, String issn, String format, Integer pageCount, String resourceURI, RealmList<com.ruanorz.marvelapp.Url> urls, com.ruanorz.marvelapp.Series series, RealmList<com.ruanorz.marvelapp.Date> dates, RealmList<com.ruanorz.marvelapp.Price> prices, com.ruanorz.marvelapp.Thumbnail thumbnail, RealmList<com.ruanorz.marvelapp.Image> images, com.ruanorz.marvelapp.Creators creators, com.ruanorz.marvelapp.Characters characters, com.ruanorz.marvelapp.Stories stories, com.ruanorz.marvelapp.Events events) {
+    public Result(Integer id, String name, Integer digitalId, String title, Integer issueNumber, String modified, String isbn, String upc, String diamondCode, String ean, String issn, String format, Integer pageCount, String resourceURI, RealmList<com.ruanorz.marvelapp.Url> urls, com.ruanorz.marvelapp.Series series, RealmList<com.ruanorz.marvelapp.Date> dates, RealmList<com.ruanorz.marvelapp.Price> prices, com.ruanorz.marvelapp.Thumbnail thumbnail, RealmList<com.ruanorz.marvelapp.Image> images, com.ruanorz.marvelapp.Creators creators, com.ruanorz.marvelapp.Characters characters, com.ruanorz.marvelapp.Stories stories, com.ruanorz.marvelapp.Events events) {
         super();
         this.id = id;
+        this.name = name;
         this.digitalId = digitalId;
         this.title = title;
         this.issueNumber = issueNumber;
@@ -156,6 +160,14 @@ public class Result extends RealmObject {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Result withId(Integer id) {

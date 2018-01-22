@@ -1,6 +1,7 @@
 package com.ruanorz.marvelapp.comic_list;
 
 
+import com.ruanorz.marvelapp.CharacterListResponse;
 import com.ruanorz.marvelapp.ComicListResponse;
 
 /**
@@ -16,5 +17,7 @@ public interface ComicView {
     void onFailure(String appErrorMessage);
 
     void getComicListSuccess(ComicListResponse comicListResponse);
+
+    void getCharacterListSuccess(CharacterListResponse characterListResponse);
 
 }

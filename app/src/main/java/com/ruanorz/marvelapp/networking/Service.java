@@ -2,6 +2,7 @@ package com.ruanorz.marvelapp.networking;
 
 import android.util.Log;
 
+import com.ruanorz.marvelapp.CharacterListResponse;
 import com.ruanorz.marvelapp.ComicListResponse;
 import com.ruanorz.marvelapp.utils.Constants;
 
@@ -73,6 +74,54 @@ public class Service {
 
     public interface GetComicListCallback{
         void onSuccess(ComicListResponse cityListResponse);
+
+        void onError(NetworkError networkError);
+    }
+
+
+
+    public Subscription getCharacterList(int page, final GetCharacterCallback callback) {
+
+        long timeStamp = System.currentTimeMillis();
+        String stringToHash = timeStamp + Constants.getPrivateKey() + Constants.getPublicKey();
+        String hash = new String(Hex.encodeHex(DigestUtils.md5(stringToHash)));
+
+        Log.e("error", timeStamp+" - "+hash+" - "+stringToHash);
+
+        Integer offsetPetition=page*Constants.getLimitPerPage();
+
+
+        return networkService.getCharacterList(timeStamp, Constants.getPublicKey(), hash, Constants.getLimitPerPage(), offsetPetition)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .onErrorResumeNext(new Func1<Throwable, Observable<? extends CharacterListResponse>>() {
+                    @Override
+                    public Observable<? extends CharacterListResponse> call(Throwable throwable) {
+                        return Observable.error(throwable);
+                    }
+                })
+                .subscribe(new Subscriber<CharacterListResponse>() {
+                    @Override
+                    public void onCompleted() {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        callback.onError(new NetworkError(e));
+
+                    }
+
+                    @Override
+                    public void onNext(CharacterListResponse cityListResponse) {
+                        callback.onSuccess(cityListResponse);
+
+                    }
+                });
+    }
+
+    public interface GetCharacterCallback{
+        void onSuccess(CharacterListResponse cityListResponse);
 
         void onError(NetworkError networkError);
     }

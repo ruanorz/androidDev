@@ -4,4 +4,5 @@
     <string name="no_description">Description not found... Sorry</string>
     <string name="no_authors">Authors not found... Sorry</string>
     <string name="price">Price: %1$s</string>
+    <string name="no_comics">No comics found for this character :(</string>
 </resources>

@@ -126,4 +126,51 @@ public class Service {
         void onError(NetworkError networkError);
     }
 
+
+    public Subscription getComicListFromCharacterID(int page, int characterID, final GetComicListFromCharacterIDCallback callback) {
+
+        long timeStamp = System.currentTimeMillis();
+        String stringToHash = timeStamp + Constants.getPrivateKey() + Constants.getPublicKey();
+        String hash = new String(Hex.encodeHex(DigestUtils.md5(stringToHash)));
+
+        Log.e("error", timeStamp+" - "+hash+" - "+stringToHash);
+
+        Integer offsetPetition=page*Constants.getLimitPerPage();
+
+
+        return networkService.getComicListFromCharacterID(timeStamp, Constants.getPublicKey(), hash, Constants.getLimitPerPage(), offsetPetition, characterID)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .onErrorResumeNext(new Func1<Throwable, Observable<? extends ComicListResponse>>() {
+                    @Override
+                    public Observable<? extends ComicListResponse> call(Throwable throwable) {
+                        return Observable.error(throwable);
+                    }
+                })
+                .subscribe(new Subscriber<ComicListResponse>() {
+                    @Override
+                    public void onCompleted() {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        callback.onError(new NetworkError(e));
+
+                    }
+
+                    @Override
+                    public void onNext(ComicListResponse cityListResponse) {
+                        callback.onSuccess(cityListResponse);
+
+                    }
+                });
+    }
+
+    public interface GetComicListFromCharacterIDCallback{
+        void onSuccess(ComicListResponse cityListResponse);
+
+        void onError(NetworkError networkError);
+    }
+
 }

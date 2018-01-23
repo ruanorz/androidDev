@@ -19,6 +19,7 @@ public interface NetworkService {
     String TIMESTAMP = "ts";
     String LIMIT = "limit";
     String OFFSET = "offset";
+    String CHARACTERS = "characters";
 
     @GET("v1/public/comics?hasDigitalIssue=true")
     Observable<ComicListResponse> getComicList(
@@ -36,6 +37,16 @@ public interface NetworkService {
             @Query(HASH) String hash,
             @Query(LIMIT) Integer limit,
             @Query(OFFSET) Integer offset);
+
+
+    @GET("v1/public/comics?hasDigitalIssue=true")
+    Observable<ComicListResponse> getComicListFromCharacterID(
+            @Query(TIMESTAMP) long timestamp,
+            @Query(API_KEY) String publicKey,
+            @Query(HASH) String hash,
+            @Query(LIMIT) Integer limit,
+            @Query(OFFSET) Integer offset,
+            @Query(CHARACTERS) Integer characters);
 
 
 }

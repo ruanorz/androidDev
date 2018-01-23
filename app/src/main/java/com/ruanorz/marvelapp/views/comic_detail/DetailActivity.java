@@ -9,21 +9,24 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.ruanorz.marvelapp.BaseApp;
 import com.ruanorz.marvelapp.R;
 import com.ruanorz.marvelapp.Result;
+import com.ruanorz.marvelapp.networking.Service;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
+import javax.inject.Inject;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import io.realm.Realm;
 
-public class DetailActivity extends AppCompatActivity implements AppBarLayout.OnOffsetChangedListener{
+public class DetailActivity extends BaseApp implements AppBarLayout.OnOffsetChangedListener, DetailComicView{
 
-    private Realm realm;
     private Result comic;
+    @Inject
+    public Service service;
 
     @BindView(R.id.iv_comic_image)
     ImageView iv_comic_image;
@@ -44,15 +47,17 @@ public class DetailActivity extends AppCompatActivity implements AppBarLayout.On
 
     private boolean collapsed = false;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail);
+    private DetailPresenter presenter;
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        getDeps().inject(this);
+
+        setContentView(R.layout.activity_detail);
         ButterKnife.bind(this);
 
-        realm = Realm.getDefaultInstance();
-
+        presenter = new DetailPresenter(service, this);
         supportPostponeEnterTransition();
 
         Integer ID_COMIC_CLICKED = null;
@@ -63,10 +68,9 @@ public class DetailActivity extends AppCompatActivity implements AppBarLayout.On
             throw new IllegalArgumentException("Activity cannot find  extras " + "ID_COMIC_CLICKED");
         }
 
-        Toast.makeText(this,"COMIC_ID: "+ID_COMIC_CLICKED,
-                Toast.LENGTH_LONG).show();
 
-        comic = realm.where(Result.class).equalTo("id", ID_COMIC_CLICKED).findFirst();
+
+        comic = presenter.getComicListFromCharacterID(ID_COMIC_CLICKED);
 
         String comic_photo_url = comic.getThumbnail().getPath() +"."+ comic.getThumbnail().getExtension().toLowerCase();
 
@@ -179,5 +183,15 @@ public class DetailActivity extends AppCompatActivity implements AppBarLayout.On
                 collapsed=false;
             }
         }
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+//        presenter.closeRealm();
+        presenter.unsuscribeRxAndroid();
+
     }
 }

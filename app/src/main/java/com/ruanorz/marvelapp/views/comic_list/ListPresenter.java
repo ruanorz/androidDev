@@ -33,7 +33,9 @@ public class ListPresenter {
     }
 
     public void getComicList(final int page) {
-        view.showWait();
+        if (page==0) {
+            view.showWait();
+        }
 
         Subscription subscription = service.getComicList(page ,new Service.GetComicListCallback() {
             @Override
@@ -43,7 +45,7 @@ public class ListPresenter {
 
                 fullComicList = comicListResponse.getData().getResults();
 
-                Wrapper.saveComics(page, fullComicList);
+                Wrapper.getInstance().saveComics(page, fullComicList);
 
                 view.removeWait();
                 view.getComicListSuccess(comicListResponse);
@@ -70,7 +72,7 @@ public class ListPresenter {
 
 
     public void closeRealm(){
-        Wrapper.closeRealm();
+        Wrapper.getInstance().closeRealm();
     }
 
 
@@ -102,6 +104,46 @@ public class ListPresenter {
 
     public RealmResults<Result> getComicListFromDB(){
 
-        return Wrapper.getAllComics();
+        return Wrapper.getInstance().getAllComics();
     }
+
+
+    public void getComicListFromCharacterID(final int page, int characterID) {
+
+        if (page==0) {
+            view.showWait();
+        }
+
+        Subscription subscription = service.getComicListFromCharacterID(page, characterID, new Service.GetComicListFromCharacterIDCallback() {
+            @Override
+            public void onSuccess(ComicListResponse comicListResponse) {
+
+
+                fullComicList = comicListResponse.getData().getResults();
+
+                Wrapper.getInstance().saveComics(page, fullComicList);
+
+                view.removeWait();
+                view.getComicListFromCharacterIDSuccess(comicListResponse);
+
+            }
+
+            @Override
+            public void onError(NetworkError networkError) {
+
+                view.removeWait();
+                view.onFailure(networkError.getAppErrorMessage());
+            }
+
+        });
+
+        subscriptions.add(subscription);
+    }
+
+    public void unsuscribeRxAndroid(){
+        if (subscriptions.isUnsubscribed()){
+            subscriptions.unsubscribe();
+        }
+    }
+
 }

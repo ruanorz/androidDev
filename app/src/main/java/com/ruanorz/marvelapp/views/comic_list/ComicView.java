@@ -20,4 +20,6 @@ public interface ComicView {
 
     void getCharacterListSuccess(CharacterListResponse characterListResponse);
 
+    void getComicListFromCharacterIDSuccess(ComicListResponse comicListResponse);
+
 }

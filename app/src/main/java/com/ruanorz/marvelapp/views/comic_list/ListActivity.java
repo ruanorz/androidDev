@@ -20,6 +20,7 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.ruanorz.marvelapp.BaseApp;
 import com.ruanorz.marvelapp.CharacterListResponse;
@@ -27,6 +28,7 @@ import com.ruanorz.marvelapp.ComicListResponse;
 import com.ruanorz.marvelapp.R;
 import com.ruanorz.marvelapp.Result;
 import com.ruanorz.marvelapp.dbwrapper.Wrapper;
+import com.ruanorz.marvelapp.utils.UtilsUI;
 import com.ruanorz.marvelapp.views.comic_list.adapter.CharacterListAdapter;
 import com.ruanorz.marvelapp.views.comic_list.adapter.ComicListAdapter;
 import com.ruanorz.marvelapp.networking.Service;
@@ -50,6 +52,7 @@ public class ListActivity extends BaseApp implements ComicView {
     private EndlessRecyclerViewScrollListener scrollListener;
     private EndlessRecyclerViewScrollListener scrollListenerCharacters;
     RealmResults<Result> fullComicList;
+    List<Result> fullComicListFromCharacter;
     List<Result> fullCharacterList;
     ComicListAdapter adapter;
     CharacterListAdapter adapterCharacters;
@@ -69,8 +72,9 @@ public class ListActivity extends BaseApp implements ComicView {
     public boolean dialogOpened = false;
     private ImageView iv_lupa;
     private RelativeLayout btn_fab_initial;
-
+    private boolean searchingByCharacter = false;
     private RelativeLayout loading_more_characters;
+    private RelativeLayout tv_no_comics;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -91,7 +95,7 @@ public class ListActivity extends BaseApp implements ComicView {
         adapter = new ComicListAdapter(fullComicList, this);
         list.setAdapter(adapter);
 
-        adapterCharacters = new CharacterListAdapter(fullCharacterList, this);
+        adapterCharacters = new CharacterListAdapter(fullCharacterList, this, presenter);
         list_characters.setAdapter(adapterCharacters);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
@@ -180,6 +184,7 @@ public class ListActivity extends BaseApp implements ComicView {
         list_characters = (RecyclerView) findViewById(R.id.list_characters);
         progressBar = (ProgressBar) findViewById(R.id.progress);
         loading_more_characters = (RelativeLayout) findViewById(R.id.loading_more_characters);
+        tv_no_comics = (RelativeLayout) findViewById(R.id.tv_no_comics);
     }
 
     public void init(){
@@ -190,11 +195,14 @@ public class ListActivity extends BaseApp implements ComicView {
     @Override
     public void showWait() {
         progressBar.setVisibility(View.VISIBLE);
+
+
     }
 
     @Override
     public void removeWait() {
         progressBar.setVisibility(View.GONE);
+
     }
 
     @Override
@@ -224,11 +232,32 @@ public class ListActivity extends BaseApp implements ComicView {
 
     }
 
+
+    @Override
+    public void getComicListFromCharacterIDSuccess(ComicListResponse comicListResponse) {
+
+        searchingByCharacter = true;
+        if (comicListResponse.getData().getResults().size()<1){
+            tv_no_comics.setVisibility(View.VISIBLE);
+        }else {
+            tv_no_comics.setVisibility(View.GONE);
+        }
+
+        fullComicList = presenter.getComicListFromDB();
+
+        ly_progress_scroll.setVisibility(View.GONE);
+        adapter.notifyDataSetChanged();
+
+    }
+
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
 
         presenter.closeRealm();
+        presenter.unsuscribeRxAndroid();
+
     }
 
     private void revealCharacterDialog(){
@@ -265,8 +294,32 @@ public class ListActivity extends BaseApp implements ComicView {
 
         if (!dialogOpened) {
 
+            if (searchingByCharacter){
+                searchingByCharacter=false;
+                presenter.getComicList(0);
+
+
+
+
+
+                ObjectAnimator anim = ObjectAnimator.ofFloat(iv_lupa,"alpha",0.0f);
+                anim.setDuration(200);
+                anim.start();
+                anim.addListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        super.onAnimationEnd(animation);
+
+                            iv_lupa.setImageDrawable(getDrawable(R.drawable.search));
+                            ObjectAnimator anim2 = ObjectAnimator.ofFloat(iv_lupa,"alpha",1.0f);
+                            anim2.setDuration(200);
+                            anim2.start();
+                        }
+                });
+            }else {
+                openCharacterDialog();
+            }
 //            OPEN DIALOG
-            openCharacterDialog();
 
         }else {
 
@@ -283,16 +336,6 @@ public class ListActivity extends BaseApp implements ComicView {
         objectAnimator.setInterpolator(new AccelerateDecelerateInterpolator());
     }
 
-    public static int dpToPx(int dp)
-    {
-        return (int) (dp * Resources.getSystem().getDisplayMetrics().density);
-    }
-
-    public static int pxToDp(int px)
-    {
-        return (int) (px / Resources.getSystem().getDisplayMetrics().density);
-    }
-
     public void closeCharacterDialog(){
 
         dialogOpened=false;
@@ -301,7 +344,7 @@ public class ListActivity extends BaseApp implements ComicView {
         int cx = dialog_search.getWidth();
         int cy = dialog_search.getHeight();
 
-        int startX = (int) (finalPositionX+dpToPx(56/2));
+        int startX = (int) (finalPositionX+ UtilsUI.dpToPx(56/2));
         int startY = (int) (0);
 
         float finalRadius = Math.max(cx, cy) * 1.2f;
@@ -338,7 +381,12 @@ public class ListActivity extends BaseApp implements ComicView {
                                 super.onAnimationEnd(animation);
 
 
-                                iv_lupa.setImageDrawable(getDrawable(R.drawable.search));
+                                if (searchingByCharacter){
+                                    iv_lupa.setImageDrawable(getDrawable(R.drawable.clear));
+                                }else{
+                                    iv_lupa.setImageDrawable(getDrawable(R.drawable.search));
+                                }
+
                                 ObjectAnimator anim4 = ObjectAnimator.ofFloat(iv_lupa,"alpha",1.0f);
                                 anim4.setDuration(200);
                                 anim4.start();
@@ -346,7 +394,11 @@ public class ListActivity extends BaseApp implements ComicView {
                                     @Override
                                     public void onAnimationEnd(Animator animation) {
                                         super.onAnimationEnd(animation);
-                                        iv_lupa.setImageDrawable(getDrawable(R.drawable.search));
+                                        if (searchingByCharacter){
+                                            iv_lupa.setImageDrawable(getDrawable(R.drawable.clear));
+                                        }else{
+                                            iv_lupa.setImageDrawable(getDrawable(R.drawable.search));
+                                        }
                                     }
                                 });
 
@@ -423,7 +475,7 @@ public class ListActivity extends BaseApp implements ComicView {
                 int cx = dialog_search.getWidth();
                 int cy = dialog_search.getHeight();
 
-                int startX = (int) (finalPositionX+dpToPx(56/2));
+                int startX = (int) (finalPositionX+UtilsUI.dpToPx(56/2));
                 int startY = (int) (0);
 
                 float finalRadius = Math.max(cx, cy) * 1.2f;

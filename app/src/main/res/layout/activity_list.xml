@@ -24,7 +24,7 @@
             android:layout_height="150dp"
             android:background="@color/black"
             app:expandedTitleGravity="top|center_horizontal"
-            app:layout_scrollFlags="scroll|snap|enterAlwaysCollapsed">
+            app:layout_scrollFlags="scroll|enterAlwaysCollapsed">
 
 
             <ImageView
@@ -42,24 +42,28 @@
 
     </android.support.design.widget.AppBarLayout>
 
+
+
     <RelativeLayout
+        android:visibility="gone"
+        android:id="@+id/tv_no_comics"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <ProgressBar
-            android:id="@+id/progress"
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"/>
-
-
+            android:layout_centerInParent="true"
+            android:text="@string/no_comics"
+            android:textColor="@color/white"/>
     </RelativeLayout>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:divider="#00000000"/>
+
 
 
     <RelativeLayout
@@ -147,5 +151,16 @@
         android:visibility="invisible"
         android:background="@drawable/fab_background"
         android:clickable="true"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
 
 </android.support.design.widget.CoordinatorLayout>

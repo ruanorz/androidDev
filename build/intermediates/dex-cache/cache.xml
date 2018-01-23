@@ -2,13 +2,13 @@
 <items version="2" >
 
     <item
-        is-multidex="true"
+        is-multidex="false"
         jar="C:\Users\ruano\.android\build-cache\8857a248e0e90ed8f38fd1fcbb9da1868efe09ef\output\jars\classes.jar"
-        jumboMode="true"
+        jumboMode="false"
         optimize="true"
         revision="27.0.2"
         sha1="a5fa2e3704f51b30b7b47e12a3a2909728799583">
-        <dex dex="D:\MarvelApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_15d07b1edddd0b3874120b6abac007ccb7195e74\classes.dex" />
+        <dex dex="D:\MarvelApp\app\build\intermediates\pre-dexed\debug\classes_15d07b1edddd0b3874120b6abac007ccb7195e74.jar" />
     </item>
     <item
         is-multidex="false"
@@ -63,15 +63,6 @@
         revision="27.0.2"
         sha1="6975da39a7040257bd51d21a231b76c915872d38">
         <dex dex="D:\MarvelApp\app\build\intermediates\pre-dexed\debug\javax.inject-1_4bff629b137c61bc6adf61b96346d2fda72dbc8b.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\ruano\.android\build-cache\20d56ad960d9bf6571ecd7347913f72717b10222\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="27.0.2"
-        sha1="cad1364721fc716a39bdc351d3637edb634c9aa5">
-        <dex dex="D:\MarvelApp\app\build\intermediates\pre-dexed\debug\classes_7fc554806f47fe8eb9fe69549407925c62f883ac.jar" />
     </item>
     <item
         is-multidex="false"
@@ -138,6 +129,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\ruano\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.8.0\5ea7af56cc7c567ed9856d99efb30740e9b17ff\okio-1.8.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="05ea7af56cc7c567ed9856d99efb30740e9b17ff">
+        <dex dex="D:\MarvelApp\app\build\intermediates\pre-dexed\debug\okio-1.8.0_0181b3ca3948a7a663232372a9fdc18f43641f9e.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\ruano\.android\build-cache\845d774ab7b8c7afdacf74144415a964779444dc\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
@@ -147,12 +147,21 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\ruano\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.8.0\5ea7af56cc7c567ed9856d99efb30740e9b17ff\okio-1.8.0.jar"
+        jar="C:\Users\ruano\.android\build-cache\37db535875bf61fa730be9f32a67fd36c131db20\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="27.0.2"
-        sha1="05ea7af56cc7c567ed9856d99efb30740e9b17ff">
-        <dex dex="D:\MarvelApp\app\build\intermediates\pre-dexed\debug\okio-1.8.0_0181b3ca3948a7a663232372a9fdc18f43641f9e.jar" />
+        sha1="031cc16b7b6e77b3c050134ecab9fa5c2640a069">
+        <dex dex="D:\MarvelApp\app\build\intermediates\pre-dexed\debug\classes_6c64a689b66e20f8971ebc4f15bc59ea2c533029.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\ruano\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\converter-gson\2.1.0\aa557d71ead91cbf26e0c316a0f593d168303309\converter-gson-2.1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="aa557d71ead91cbf26e0c316a0f593d168303309">
+        <dex dex="D:\MarvelApp\app\build\intermediates\pre-dexed\debug\converter-gson-2.1.0_a8ccb0c77a866031f873205d18e520eff6a1bdac.jar" />
     </item>
     <item
         is-multidex="false"
@@ -165,39 +174,12 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\ruano\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\converter-gson\2.1.0\aa557d71ead91cbf26e0c316a0f593d168303309\converter-gson-2.1.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="27.0.2"
-        sha1="aa557d71ead91cbf26e0c316a0f593d168303309">
-        <dex dex="D:\MarvelApp\app\build\intermediates\pre-dexed\debug\converter-gson-2.1.0_a8ccb0c77a866031f873205d18e520eff6a1bdac.jar" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ruano\.android\build-cache\37db535875bf61fa730be9f32a67fd36c131db20\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="27.0.2"
-        sha1="031cc16b7b6e77b3c050134ecab9fa5c2640a069">
-        <dex dex="D:\MarvelApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_6c64a689b66e20f8971ebc4f15bc59ea2c533029\classes.dex" />
-    </item>
-    <item
-        is-multidex="false"
         jar="C:\Users\ruano\.android\build-cache\36d2ee708f64734176e38acfb4eaab213ee61ec9\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="27.0.2"
         sha1="b432e82447a3af781e927b9ba0bbb9fe2a496d4a">
         <dex dex="D:\MarvelApp\app\build\intermediates\pre-dexed\debug\classes_8b7b995bb2c8a884dd59acfb130aaef2e4e769f8.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\ruano\.android\build-cache\b23a7c37b39fd9885ff5f5f6939707ab5bff0ba1\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="27.0.2"
-        sha1="40a6b8f05124eb9e6012e18b80a6dbd13440e283">
-        <dex dex="D:\MarvelApp\app\build\intermediates\pre-dexed\debug\classes_68db11976b2ce538e149d3d9938e4bde92d28438.jar" />
     </item>
     <item
         is-multidex="false"
@@ -263,13 +245,13 @@
         <dex dex="D:\MarvelApp\app\build\intermediates\pre-dexed\debug\classes_c832f70385b0d5a57643f6abce4c0f47a76a219c.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="C:\Users\ruano\.android\build-cache\abef8b576b3e84f02bcaddcd12a007137dde93a6\output\jars\classes.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="C:\Users\ruano\.gradle\caches\modules-2\files-2.1\com.github.bumptech.glide\glide\3.7.0\9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4\glide-3.7.0.jar"
+        jumboMode="false"
         optimize="true"
         revision="27.0.2"
-        sha1="25c8cb628374f9a2d59ff9e1172753751e9a9f84">
-        <dex dex="D:\MarvelApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_53acde7617af2bcf82c35d1ceb77b3804415c81c\classes.dex" />
+        sha1="9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4">
+        <dex dex="D:\MarvelApp\app\build\intermediates\pre-dexed\debug\glide-3.7.0_5b802f6a7fbcd0362fde4c907d9ef1ba6f1c86cb.jar" />
     </item>
     <item
         is-multidex="false"
@@ -282,21 +264,21 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\ruano\.gradle\caches\modules-2\files-2.1\com.github.bumptech.glide\glide\3.7.0\9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4\glide-3.7.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="27.0.2"
-        sha1="9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4">
-        <dex dex="D:\MarvelApp\app\build\intermediates\pre-dexed\debug\glide-3.7.0_5b802f6a7fbcd0362fde4c907d9ef1ba6f1c86cb.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="C:\Users\ruano\.android\build-cache\4c4184768fd0fef4416d44b90858c3b162a12718\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="27.0.2"
         sha1="04cd0cacbedcb338f64665b88bad64d145325fbd">
         <dex dex="D:\MarvelApp\app\build\intermediates\pre-dexed\debug\classes_945cf69172d3ba75cf29647ef4210a2f5041ea08.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\ruano\.android\build-cache\388481c7a2973c0c194e40d751da21f52edc2833\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="bcd0bcdef85b31a656af76e39c0c95ce70800772">
+        <dex dex="D:\MarvelApp\app\build\intermediates\pre-dexed\debug\classes_437cf225938b9bd778285e6b7373337a3acf62b3.jar" />
     </item>
     <item
         is-multidex="false"
@@ -308,22 +290,13 @@
         <dex dex="D:\MarvelApp\app\build\intermediates\pre-dexed\debug\classes_27d46950b9f4e04e7cc3ec120ee90434701d58ad.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="C:\Users\ruano\.android\build-cache\388481c7a2973c0c194e40d751da21f52edc2833\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="27.0.2"
-        sha1="bcd0bcdef85b31a656af76e39c0c95ce70800772">
-        <dex dex="D:\MarvelApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_437cf225938b9bd778285e6b7373337a3acf62b3\classes.dex" />
-    </item>
-    <item
         is-multidex="false"
-        jar="C:\Users\ruano\.android\build-cache\22891286e352d33dee5b7a8361380c1f0e1e31fe\output\jars\classes.jar"
+        jar="C:\Users\ruano\.android\build-cache\abef8b576b3e84f02bcaddcd12a007137dde93a6\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="27.0.2"
-        sha1="05e3d15c623cd98f0eb43c8249fb6151fae0786c">
-        <dex dex="D:\MarvelApp\app\build\intermediates\pre-dexed\debug\classes_8b4d2d462f30011679d636cde8edce8bcae7ed6b.jar" />
+        sha1="25c8cb628374f9a2d59ff9e1172753751e9a9f84">
+        <dex dex="D:\MarvelApp\app\build\intermediates\pre-dexed\debug\classes_53acde7617af2bcf82c35d1ceb77b3804415c81c.jar" />
     </item>
     <item
         is-multidex="false"
@@ -345,15 +318,6 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\ruano\.android\build-cache\ede43b130c4af2704a6f08c7229c0451b9a5d77e\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="27.0.2"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="D:\MarvelApp\app\build\intermediates\pre-dexed\debug\classes_21d904f4fb760cdbccd556e384c6f632067b7bf5.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="C:\Users\ruano\.android\build-cache\ea559517d14a8a3b3044d18695e36cb0158e7318\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
@@ -363,21 +327,21 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\ruano\.android\build-cache\b4ac2435e8ac6df3f7641ea7546f842595218167\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="27.0.2"
-        sha1="2b29d8689808b14eb3ad20b6ce41dae445f1a32d">
-        <dex dex="D:\MarvelApp\app\build\intermediates\pre-dexed\debug\classes_432c98f8412c762826edc7f1c72ead8b7ce25b29.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="C:\Users\ruano\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\adapter-rxjava\2.1.0\693eddc23e87ab13f9cf5001707ce8e7e1d1ff01\adapter-rxjava-2.1.0.jar"
         jumboMode="false"
         optimize="true"
         revision="27.0.2"
         sha1="693eddc23e87ab13f9cf5001707ce8e7e1d1ff01">
         <dex dex="D:\MarvelApp\app\build\intermediates\pre-dexed\debug\adapter-rxjava-2.1.0_2161af81be3c4f51f30543a1042b67e1fc5b9652.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\ruano\.android\build-cache\b4ac2435e8ac6df3f7641ea7546f842595218167\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="2b29d8689808b14eb3ad20b6ce41dae445f1a32d">
+        <dex dex="D:\MarvelApp\app\build\intermediates\pre-dexed\debug\classes_432c98f8412c762826edc7f1c72ead8b7ce25b29.jar" />
     </item>
     <item
         is-multidex="false"

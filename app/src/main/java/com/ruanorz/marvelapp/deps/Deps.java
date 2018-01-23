@@ -1,5 +1,6 @@
 package com.ruanorz.marvelapp.deps;
 
+import com.ruanorz.marvelapp.views.comic_detail.DetailActivity;
 import com.ruanorz.marvelapp.views.comic_list.ListActivity;
 import com.ruanorz.marvelapp.networking.NetworkModule;
 
@@ -11,4 +12,5 @@ import dagger.Component;
 @Component(modules = {NetworkModule.class,})
 public interface Deps {
     void inject(ListActivity listActivity);
+    void inject(DetailActivity detailActivity);
 }

@@ -13,19 +13,31 @@ import io.realm.RealmResults;
 
 
 public class Wrapper {
+
+    private static Wrapper wrapperInstance = null;
+
     private static Realm realm;
 
-    public static RealmResults<Result> getAllComics(){
+    public static Wrapper getInstance(){
+        if (wrapperInstance == null){
+            wrapperInstance = new Wrapper();
 
-        realm = Realm.getDefaultInstance();
+            realm = Realm.getDefaultInstance();
+        }
+        return wrapperInstance;
+    }
+
+    public RealmResults<Result> getAllComics(){
+
+
 
         return realm.where(Result.class)
                 .findAll();
     }
 
-    public static void saveComics(int page, List<Result> fullComicList){
+    public void saveComics(int page, List<Result> fullComicList){
 
-        realm = Realm.getDefaultInstance();
+
 
         //Copy comic list to db
         realm.beginTransaction();
@@ -36,7 +48,14 @@ public class Wrapper {
         realm.commitTransaction();
     }
 
-    public static void closeRealm(){
+    public Result getComicListFromCharacterID(int comicID){
+
+
+
+        return realm.where(Result.class).equalTo("id", comicID).findFirst();
+    }
+
+    public void closeRealm(){
         realm.close();
     }
 

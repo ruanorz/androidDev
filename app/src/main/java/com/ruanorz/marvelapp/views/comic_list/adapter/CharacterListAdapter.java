@@ -1,9 +1,6 @@
 package com.ruanorz.marvelapp.views.comic_list.adapter;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,8 +10,7 @@ import android.widget.TextView;
 
 import com.ruanorz.marvelapp.R;
 import com.ruanorz.marvelapp.Result;
-import com.ruanorz.marvelapp.views.comic_detail.DetailActivity;
-import com.ruanorz.marvelapp.views.comic_list.ListPresenter;
+import com.ruanorz.marvelapp.views.comic_list.presenter.ListPresenter;
 
 import java.util.List;
 

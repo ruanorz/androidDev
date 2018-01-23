@@ -4,9 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.support.design.widget.AppBarLayout;
 import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,6 +12,8 @@ import com.ruanorz.marvelapp.BaseApp;
 import com.ruanorz.marvelapp.R;
 import com.ruanorz.marvelapp.Result;
 import com.ruanorz.marvelapp.networking.Service;
+import com.ruanorz.marvelapp.views.comic_detail.interfaces.DetailComicView;
+import com.ruanorz.marvelapp.views.comic_detail.presenter.DetailPresenter;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
@@ -22,7 +22,7 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class DetailActivity extends BaseApp implements AppBarLayout.OnOffsetChangedListener, DetailComicView{
+public class DetailActivity extends BaseApp implements AppBarLayout.OnOffsetChangedListener, DetailComicView {
 
     private Result comic;
     @Inject
@@ -170,7 +170,6 @@ public class DetailActivity extends BaseApp implements AppBarLayout.OnOffsetChan
             // Collapsed
             if (!collapsed) {
                 miniaturaComic.animate().alpha(1.0f).setDuration(750).start();
-                Log.e("error", "AAAAAAAAAAAAAAAAAAA COLLAPSED");
                 collapsed=true;
             }
         }
@@ -179,7 +178,6 @@ public class DetailActivity extends BaseApp implements AppBarLayout.OnOffsetChan
             // Not collapsed
             if (collapsed) {
                 miniaturaComic.animate().alpha(0.0f).setDuration(750).start();
-                Log.e("error", "AAAAAAAAAAAAAAAAAAA COLLAPSED " + offset);
                 collapsed=false;
             }
         }

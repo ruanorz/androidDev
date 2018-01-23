@@ -1,6 +1,5 @@
 package com.ruanorz.marvelapp.networking;
 
-import android.util.Log;
 
 import com.ruanorz.marvelapp.CharacterListResponse;
 import com.ruanorz.marvelapp.ComicListResponse;
@@ -8,9 +7,6 @@ import com.ruanorz.marvelapp.utils.Constants;
 
 import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.codec.digest.DigestUtils;
-
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 
 import rx.Observable;
 import rx.Subscriber;
@@ -38,8 +34,6 @@ public class Service {
         String stringToHash = timeStamp + Constants.getPrivateKey() + Constants.getPublicKey();
         String hash = new String(Hex.encodeHex(DigestUtils.md5(stringToHash)));
 
-        Log.e("error", timeStamp+" - "+hash+" - "+stringToHash);
-
         Integer offsetPetition=page*Constants.getLimitPerPage();
 
 
@@ -65,15 +59,15 @@ public class Service {
                     }
 
                     @Override
-                    public void onNext(ComicListResponse cityListResponse) {
-                        callback.onSuccess(cityListResponse);
+                    public void onNext(ComicListResponse comicListResponse) {
+                        callback.onSuccess(comicListResponse);
 
                     }
                 });
     }
 
     public interface GetComicListCallback{
-        void onSuccess(ComicListResponse cityListResponse);
+        void onSuccess(ComicListResponse comicListResponse);
 
         void onError(NetworkError networkError);
     }
@@ -86,7 +80,6 @@ public class Service {
         String stringToHash = timeStamp + Constants.getPrivateKey() + Constants.getPublicKey();
         String hash = new String(Hex.encodeHex(DigestUtils.md5(stringToHash)));
 
-        Log.e("error", timeStamp+" - "+hash+" - "+stringToHash);
 
         Integer offsetPetition=page*Constants.getLimitPerPage();
 
@@ -113,15 +106,15 @@ public class Service {
                     }
 
                     @Override
-                    public void onNext(CharacterListResponse cityListResponse) {
-                        callback.onSuccess(cityListResponse);
+                    public void onNext(CharacterListResponse comicListResponse) {
+                        callback.onSuccess(comicListResponse);
 
                     }
                 });
     }
 
     public interface GetCharacterCallback{
-        void onSuccess(CharacterListResponse cityListResponse);
+        void onSuccess(CharacterListResponse comicListResponse);
 
         void onError(NetworkError networkError);
     }
@@ -133,7 +126,6 @@ public class Service {
         String stringToHash = timeStamp + Constants.getPrivateKey() + Constants.getPublicKey();
         String hash = new String(Hex.encodeHex(DigestUtils.md5(stringToHash)));
 
-        Log.e("error", timeStamp+" - "+hash+" - "+stringToHash);
 
         Integer offsetPetition=page*Constants.getLimitPerPage();
 
@@ -160,15 +152,15 @@ public class Service {
                     }
 
                     @Override
-                    public void onNext(ComicListResponse cityListResponse) {
-                        callback.onSuccess(cityListResponse);
+                    public void onNext(ComicListResponse comicListResponse) {
+                        callback.onSuccess(comicListResponse);
 
                     }
                 });
     }
 
     public interface GetComicListFromCharacterIDCallback{
-        void onSuccess(ComicListResponse cityListResponse);
+        void onSuccess(ComicListResponse comicListResponse);
 
         void onError(NetworkError networkError);
     }

@@ -61,9 +61,6 @@ public class NetworkModule {
 
                         okhttp3.Response response = chain.proceed(request);
                         response.cacheResponse();
-                        Log.e("error", "A -"+response.toString());
-                        Log.e("error", "B -"+response.message());
-                        Log.e("error", "C -"+response.body().byteStream());
                         // Customize or return the response
                         return response;
                     }

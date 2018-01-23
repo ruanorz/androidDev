@@ -4,14 +4,12 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
-import android.content.res.Resources;
 import android.graphics.Path;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.transition.Fade;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.view.ViewTreeObserver;
@@ -20,19 +18,19 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.ruanorz.marvelapp.BaseApp;
 import com.ruanorz.marvelapp.CharacterListResponse;
 import com.ruanorz.marvelapp.ComicListResponse;
 import com.ruanorz.marvelapp.R;
 import com.ruanorz.marvelapp.Result;
-import com.ruanorz.marvelapp.dbwrapper.Wrapper;
 import com.ruanorz.marvelapp.utils.UtilsUI;
 import com.ruanorz.marvelapp.views.comic_list.adapter.CharacterListAdapter;
 import com.ruanorz.marvelapp.views.comic_list.adapter.ComicListAdapter;
 import com.ruanorz.marvelapp.networking.Service;
 import com.ruanorz.marvelapp.utils.EndlessRecyclerViewScrollListener;
+import com.ruanorz.marvelapp.views.comic_list.interfaces.ComicView;
+import com.ruanorz.marvelapp.views.comic_list.presenter.ListPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -106,7 +104,7 @@ public class ListActivity extends BaseApp implements ComicView {
             public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
 
                 presenter.getComicList(page);
-                Log.e("error", "NECESITO MOAAAAAAAAAAAAAAR");
+
                 ly_progress_scroll.setVisibility(View.VISIBLE);
             }
         };
@@ -120,7 +118,7 @@ public class ListActivity extends BaseApp implements ComicView {
             public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
 
                 presenter.getCharacterList(page);
-                Log.e("error", "NECESITO MOAAAAAAAAAAAAAAR");
+
                 loading_more_characters.setVisibility(View.VISIBLE);
 
             }
@@ -352,7 +350,6 @@ public class ListActivity extends BaseApp implements ComicView {
         Animator reveal = ViewAnimationUtils
                 .createCircularReveal(dialog_search, startX, startY, finalRadius, 0f);
 
-        Log.e("error", finalPositionX + " - " + finalPositionX);
         reveal.setDuration(1000);
 
         reveal.start();
@@ -483,7 +480,6 @@ public class ListActivity extends BaseApp implements ComicView {
                 Animator reveal = ViewAnimationUtils
                         .createCircularReveal(dialog_search, startX, startY, 0f, finalRadius);
 
-                Log.e("error", finalPositionX + " - " + finalPositionX);
                 reveal.setDuration(1000);
 
                 reveal.start();

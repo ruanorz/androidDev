@@ -19,16 +19,17 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/ruanorz/marvelapp/networking/NetworkModule.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/ruanorz/marvelapp/networking/NetworkModule.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/ruanorz/marvelapp/networking/Service.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/ruanorz/marvelapp/networking/Service.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/ruanorz/marvelapp/views/comic_detail/DetailActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/ruanorz/marvelapp/views/comic_detail/DetailActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/ruanorz/marvelapp/views/comic_list/ListActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/ruanorz/marvelapp/views/comic_list/ListActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/ruanorz/marvelapp/views/comic_list/adapter/CharacterListAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/ruanorz/marvelapp/views/comic_list/adapter/CharacterListAdapter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/ruanorz/marvelapp/views/comic_detail/DetailComicView.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/ruanorz/marvelapp/views/comic_detail/interfaces/DetailComicView.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/ruanorz/marvelapp/views/comic_detail/DetailPresenter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/ruanorz/marvelapp/views/comic_detail/presenter/DetailPresenter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/ruanorz/marvelapp/views/comic_list/ComicView.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/ruanorz/marvelapp/views/comic_list/interfaces/ComicView.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/ruanorz/marvelapp/views/comic_list/ListPresenter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/ruanorz/marvelapp/views/comic_list/presenter/ListPresenter.java" />
     </list>
     <ignored path="MarvelApp.iws" />
     <ignored path=".idea/workspace.xml" />

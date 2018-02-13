@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Sdos</string>
+
+    <string name="user_role_administrator">Administrator</string>
+    <string name="user_role_technical">Technical</string>
+
+    <string name="create_task">Add Task</string>
+    <string name="hint_desc">Description</string>
+    <string name="duration">Duration</string>
+    <string name="complete_fields">Complete all fields please</string>
+
+    <string name="task_name">Task name: %1$s</string>
+    <string name="task_duration">Duration: %1$s hours</string>
+    <string name="task_assigned_to">Task assigned to: %1$s</string>
+
+    <string name="no_users">No users available for this Task</string>
+
+    <string name="input_user_hint">Username</string>
+    <string name="input_pass_hint">Password</string>
+    <string name="login">login</string>
+    <string name="fail_login">USER/PASSWORD INCORRECT!</string>
+</resources>

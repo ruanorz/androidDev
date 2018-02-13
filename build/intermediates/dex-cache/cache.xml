@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="C:\Users\ruano\.android\build-cache\e9a74b489426d0f26dc37adc0bf3b0b845e3c0e6\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="b1e0cd070d7cf659ece90e919bff76e7ddc32532">
+        <dex dex="C:\Artesiete\Sdos\app\build\intermediates\pre-dexed\debug\classes_c72f58b264184b3473ef870326c89abb72a2c4ed.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\ruano\.android\build-cache\d31560a6d7c4586ebc2c3d0f33b3d5e5b1fb06c2\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="8ab3d8f8d0984b321a52fe8180359a856cfcb64a">
+        <dex dex="C:\Artesiete\Sdos\app\build\intermediates\pre-dexed\debug\classes_91eeef8577451c33395e2f1a0fc97e07c160b4db.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Artesiete\Sdos\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="27.0.2"
+        sha1="834a2c43cf5679f0e522934e0657d6f0377982a8">
+        <dex dex="C:\Artesiete\Sdos\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_580b20891e21874df242773878803b3560b70bd3\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Artesiete\Sdos\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="27.0.2"
+        sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
+        <dex dex="C:\Artesiete\Sdos\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_d97a2b12b6f4a2dd852849062aff4eb719e6e5c0\classes.dex" />
+    </item>
+
+</items>
